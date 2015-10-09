@@ -39,7 +39,9 @@ class AddressBook
      end
     return nil
   end
-
+  def destroy
+    @entires = []
+  end
   def iterative_search(name)
     @entries.each do|entry|
       if entry.name == name

@@ -164,7 +164,16 @@
        expect(entry).to be_nil
      end
     end
-
+       context "#destroy" do
+        it "should delete all entries" do
+          book.add_entry("Hello Entry", "003.632.5698", "hello@hello.com")
+          book.add_entry("Hello Entry", "003.632.5698", "hello@hello.com")
+          book.add_entry("Hello Entry", "003.632.5698", "hello@hello.com")
+          book.add_entry("Hello Entry", "003.632.5698", "hello@hello.com")
+          book.destroy
+          expect(book.entries.size).to eq 0
+        end
+      end
        context "#binary_search" do
        it "searches AddressBook for a non-existent entry" do
          book.import_from_csv("entries.csv")
